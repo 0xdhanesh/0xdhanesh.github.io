@@ -87,7 +87,7 @@ Contact: ${p.email}
   const schema = JSON.stringify({ '@context':'https://schema.org', '@type':'Person', name:p.name, jobTitle:p.role, url:p.url, sameAs:[p.github,p.blog], homeLocation:{'@type':'Place',name:p.location} }).replace(/</g,'\\u003c');
   const values = {
     ...Object.fromEntries(Object.entries(p).map(([key,value])=>[key,escape(value)])),
-    portrait: p.photo ? `<img class="profile-photo" src="${escape(p.photo)}" alt="${escape(p.photo_alt || `Portrait of ${p.name}`)}" width="112" height="112" fetchpriority="high">` : '',
+    portrait: p.photo ? `<span class="profile-frame"><img class="profile-photo" src="${escape(p.photo)}" alt="${escape(p.photo_alt || `Portrait of ${p.name}`)}" width="112" height="112" fetchpriority="high"></span>` : '',
     sections: sectionHTML, impact:renderRecords(sections.find(s=>s.id==='impact')).replaceAll('<h3>', '<h2>').replaceAll('</h3>', '</h2>'), schema,
     year: new Date().getUTCFullYear(),
   };
