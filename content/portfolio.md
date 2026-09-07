@@ -101,16 +101,16 @@ Most client work is confidential. These records describe the scope, approach, an
 
 ---
 
-### Aujas Cybersecurity / NuSummit
+### Sony India Software Center
 
-*Trainee → Senior Security Consultant · Jun 2022 – Mar 2025 · Embedded at Sony India Software Center*
+*Senior Security Consultant · Jun 2022 – Mar 2025 · Embedded from Aujas Cybersecurity/NuSummit*
 
 - Led offensive assessments across web, Android, iOS, tvOS, webOS, and TizenOS for media and OTT clients, identifying payment bypasses, DRM misconfigurations, business-logic flaws, and memory corruption.
 - Built custom fuzzing tools, reversed proprietary protocols, and developed exploits and root-cause analyses, including a critical issue on a shipping consumer device.
 - Developed attack-centric threat models and performed IoT / hardware testing and firmware reverse engineering.
 - **Automated 70%+ of repetitive assessments** with Python and Bash; enhanced static analysis with Fortify and Semgrep.
 - Delivered executive-level vulnerability reports with actionable remediation guidance.
-- Promoted to Senior Consultant. Recognition included Best Team, Emerging Champion, Bravo, SPOT, and Valuable Partner of the Quarter awards.
+- Promoted to Senior Consultant (from Trainee). Recognition included Best Team, Emerging Champion, Bravo, SPOT, and Valuable Partner of the Quarter awards.
 
 ---
 
