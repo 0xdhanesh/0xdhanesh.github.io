@@ -821,3 +821,26 @@ body {
   color:black;
   font-size:10pt}
 }
+
+.hero-identity {
+  display:flex;
+  align-items:center;
+  gap:20px;
+  margin-bottom:24px}
+.hero-identity .hero-name {
+  margin:0}
+.profile-photo {
+  width:112px;
+  height:112px;
+  flex-shrink:0;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid var(--mint);
+  background:#1b3442}
+@media(max-width:760px) {
+  .profile-photo {width:80px;height:80px}
+  .hero-identity {gap:16px}
+}
+@media print {
+  .profile-photo {display:none}
+}

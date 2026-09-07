@@ -1,4 +1,4 @@
-﻿# Dhanesh Sivasamy — portfolio
+﻿# Dhanesh Sivasamy - portfolio
 
 A static portfolio for https://0xdhanesh.github.io. All personal details and work records live in **[content/portfolio.md](content/portfolio.md)**. The build produces complete HTML: no browser-side Markdown fetching, framework, third-party fonts, or tracking.
 
@@ -8,7 +8,7 @@ A static portfolio for https://0xdhanesh.github.io. All personal details and wor
 2. Edit the profile fields between the first two `---` lines, or update the Markdown below them.
 3. Commit to your default branch. Once GitHub Pages is configured for Actions, the workflow rebuilds and publishes automatically.
 
-**Before publishing:** confirm your current Dubai employer, job title, and start date. The original site listed Festo from March 2025 to Present in Bengaluru. That experience is retained as “Mar 2025 onward” without assuming a new company. Update it to the correct end date if you have moved. Review your metrics and certification status too.
+Your current work details are maintained in the Experience section of `content/portfolio.md`.
 
 The top profile fields control your name, title, location, email, external links, headline, and summary. Quote YAML values containing a colon followed by a space, for example `role: "Security Engineer: Product & AI"`.
 
@@ -57,6 +57,21 @@ Add images or a resume PDF to `assets/`, then link from Markdown:
 ```
 
 Assets are copied into the published site. Use descriptive image alt text and keep images reasonably sized. Everything in this file and in `assets/` is public. Keep private notes elsewhere; HTML comments are excluded from the rendered page but remain visible in a public repository.
+
+## Profile photo
+
+A portrait placeholder appears beside your name on desktop and mobile. Upload your photo to `assets/`, then update these fields in `content/portfolio.md`:
+
+```yaml
+photo: assets/profile.jpg
+photo_alt: Portrait of Dhanesh Sivasamy
+```
+
+Use a square crop with your face centred. Leave `photo` empty to hide the portrait. No HTML edits are needed.
+
+## LLM-readable content
+
+The build generates `/llms.txt` and `/index.md` from the same portfolio Markdown, including your latest work records. The `recruiting_summary` and `role_fit` fields in `content/portfolio.md` control the recruiting brief. The build appends the current impact, selected work, experience, and credentials directly from your records, so evidence updates automatically. Keep role claims aligned with the supporting records. Do not edit these generated files. Editor comments and YAML are excluded from the published Markdown. Discovery links in the HTML follow the [llms.txt proposal](https://llmstxt.org/).
 
 ## Local preview
 

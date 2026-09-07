@@ -1,7 +1,9 @@
 import { chromium } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
-import { mkdir } from 'node:fs/promises';
+import { parsePortfolio } from './build.mjs';
+import { mkdir, readFile } from 'node:fs/promises';
+const expectedRecords = parsePortfolio(await readFile('content/portfolio.md', 'utf8')).sections.find(s => s.id === 'experience').records.length;
 const browser = await chromium.launch({channel:'msedge',headless:true});
 await mkdir('.preview',{recursive:true});
 try {
@@ -28,7 +30,7 @@ try {
   }
   const page=await browser.newPage({javaScriptEnabled:false});
   await page.goto('http://127.0.0.1:4173');
-  assert.equal(await page.locator('#experience .record').count(),3);
+  assert.equal(await page.locator('#experience .record').count(),expectedRecords);
   assert.equal(await page.locator('.print-button').isVisible(),false);
   await page.goto('http://127.0.0.1:4173/work.html');
   await page.waitForURL('**/#experience');

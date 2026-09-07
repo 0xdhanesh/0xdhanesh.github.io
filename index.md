@@ -1,35 +1,10 @@
----
-name: Dhanesh Sivasamy
-handle: 0xdhanesh
-role: Senior Engineer - Product Security
-location: Dubai, UAE
-origin: India
-photo: assets/dhanesh.jpeg
-photo_alt: Portrait of Dhanesh Sivasamy
-email: dhanesh.professional@gmail.com
-github: https://github.com/0xdhanesh
-blog: https://0xdhanesh.gitbook.io/
-url: https://0xdhanesh.github.io
-headline: An attacker's mindset.
-headline_accent: An engineer's follow-through.
-summary: I find the weaknesses that scanners miss - across applications, firmware, industrial systems, and AI - and work with engineers to turn findings into lasting fixes.
-recruiting_summary: >-
-  Dhanesh Sivasamy brings an offensive security specialist's investigative depth
-  and a product security engineer's follow-through. His work connects application
-  and device exploitation, AI trust-boundary research, custom tooling, and
-  remediation with engineering teams. This combination makes a strong case for
-  senior offensive security roles that value hands-on discovery and practical fixes.
-role_fit:
-  - "Senior penetration tester / application security consultant: web, API, mobile, and OTT assessments at Aujas, including payment bypasses, DRM issues, and business-logic flaws; API testing tooling through burpsuite-swagger-generator."
-  - "Product security engineer: remediation of 12+ critical and high-severity vulnerabilities at Festo, spanning applications, firmware, hardware, IoT, and industrial edge controllers; collaboration with engineering and leadership."
-  - "Vulnerability researcher / embedded security specialist: custom fuzzing, proprietary protocol reverse engineering, exploit development, and root-cause analysis at Aujas; Profinet and Modbus fuzzing at Festo; CVE-2022-2912 disclosure listed in Selected work."
-  - "AI security testing specialist: IPI-SOC-LLM research demonstrates second-order prompt injection through attacker-controlled logs; current Dubai work includes banking applications and AI/MCP-powered IVR systems."
-  - "Senior offensive security consultant / technical mentor: 70%+ assessment automation at Aujas, executive reporting, technical interviewing, mentoring six engineers, and supporting team growth from four to ten at Festo."
----
+# Dhanesh Sivasamy
 
-<!-- This is the source of truth for your portfolio. See README.md for examples.
-Use ## for sections, ### for cards/roles, and --- between records.
-Set photo and photo_alt above when your portrait is ready. -->
+> Senior Engineer - Product Security. Based in Dubai, UAE. From India.
+
+I find the weaknesses that scanners miss - across applications, firmware, industrial systems, and AI - and work with engineers to turn findings into lasting fixes.
+
+Contact: dhanesh.professional@gmail.com
 
 ## Impact
 

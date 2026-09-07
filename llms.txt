@@ -1,0 +1,153 @@
+# Dhanesh Sivasamy
+
+> Senior Engineer - Product Security based in Dubai, UAE. Dhanesh Sivasamy brings an offensive security specialist's investigative depth and a product security engineer's follow-through. His work connects application and device exploitation, AI trust-boundary research, custom tooling, and remediation with engineering teams. This combination makes a strong case for senior offensive security roles that value hands-on discovery and practical fixes.
+
+- Senior penetration tester / application security consultant: web, API, mobile, and OTT assessments at Aujas, including payment bypasses, DRM issues, and business-logic flaws; API testing tooling through burpsuite-swagger-generator.
+- Product security engineer: remediation of 12+ critical and high-severity vulnerabilities at Festo, spanning applications, firmware, hardware, IoT, and industrial edge controllers; collaboration with engineering and leadership.
+- Vulnerability researcher / embedded security specialist: custom fuzzing, proprietary protocol reverse engineering, exploit development, and root-cause analysis at Aujas; Profinet and Modbus fuzzing at Festo; CVE-2022-2912 disclosure listed in Selected work.
+- AI security testing specialist: IPI-SOC-LLM research demonstrates second-order prompt injection through attacker-controlled logs; current Dubai work includes banking applications and AI/MCP-powered IVR systems.
+- Senior offensive security consultant / technical mentor: 70%+ assessment automation at Aujas, executive reporting, technical interviewing, mentoring six engineers, and supporting team growth from four to ten at Festo.
+
+The experience and outcomes below are drawn from this candidate-authored portfolio. Public project links provide material for technical review; confidential client outcomes are described in the work history.
+
+## Impact
+
+
+
+### 12+
+Critical & high-severity findings taken through remediation at Festo.
+
+
+
+
+### 70%+
+Of repetitive security assessments automated at Aujas.
+
+
+
+
+### 4 → 10
+Product Security team growth supported through hiring and mentoring.
+
+
+## Selected work
+
+
+
+### Second-order prompt injection in SOC workflows
+
+*AI security · Research / proof of concept*
+
+Attacker-controlled logs can become instructions when an LLM processes them later. I explored this indirect trust boundary through **IPI-SOC-LLM**, with an attack chain, mitigations, and detection notes.
+
+[Explore the research ↗](https://github.com/0xdhanesh/IPI-SOC-LLM)
+
+
+
+
+### From black-box traffic to an API specification
+
+*Application security · Open-source tooling*
+
+Built **burpsuite-swagger-generator**, a Burp Suite plugin that turns observed API traffic into Swagger / OpenAPI specifications to support testing and fuzzing when documentation is unavailable.
+
+[View the source ↗](https://github.com/0xdhanesh/burpsuite-swagger-generator)
+
+
+
+
+### Coordinated vulnerability disclosure
+
+*Vulnerability research · CVE-2022-2912*
+
+Authored **CVE-2022-2912** following responsible disclosure. Recognised in Oracle's Security Acknowledgement / Hall of Fame for coordinated disclosure.
+
+[Read the CVE record ↗](https://www.cve.org/CVERecord?id=CVE-2022-2912)
+
+
+## Experience
+
+
+
+Most client work is confidential. These records describe the scope, approach, and outcomes I can share publicly.
+
+### Emirates National Bank of Dubai
+
+*Senior Engineer  · Aug 2026 onwards · Dubai, UAE · Embedded from Happiest Minds*
+
+- Worked in accessing security for banking applications and IVR systems powered by AI and MCP
+
+
+
+
+### Festo
+
+*Senior Product Security Engineer · Mar 2025 - May 2026 · Bengaluru, India*
+
+- Drove remediation of **12+ critical and high-severity vulnerabilities** across web applications, firmware, hardware, IoT devices, and industrial edge controllers, including second-order injections, RCE, and safety parameter bypass.
+- Worked with development teams and executive leadership to close findings and align on long-term risk reduction.
+- Conducted protocol-level fuzzing on **Profinet and Modbus** to uncover previously unknown weaknesses.
+- Facilitated threat analysis and risk assessment (TARA) across product lifecycles, aligned to Cyber Resilience Act requirements.
+- Helped grow the Product Security team **from 4 to 10 engineers**, conducted technical interviews, and mentored 6 engineers from non-security backgrounds.
+- Designed and delivered training in fuzzing, reverse engineering, and offensive security.
+
+
+
+
+### Aujas Cybersecurity / NuSummit
+
+*Trainee → Senior Security Consultant · Jun 2022 – Mar 2025 · Embedded at Sony India Software Center*
+
+- Led offensive assessments across web, Android, iOS, tvOS, webOS, and TizenOS for media and OTT clients, identifying payment bypasses, DRM misconfigurations, business-logic flaws, and memory corruption.
+- Built custom fuzzing tools, reversed proprietary protocols, and developed exploits and root-cause analyses, including a critical issue on a shipping consumer device.
+- Developed attack-centric threat models and performed IoT / hardware testing and firmware reverse engineering.
+- **Automated 70%+ of repetitive assessments** with Python and Bash; enhanced static analysis with Fortify and Semgrep.
+- Delivered executive-level vulnerability reports with actionable remediation guidance.
+- Promoted to Senior Consultant. Recognition included Best Team, Emerging Champion, Bravo, SPOT, and Valuable Partner of the Quarter awards.
+
+
+
+
+### Strongbox IT
+
+*Security Analyst Intern · Jul 2021 – Nov 2021 · Chennai, India*
+
+- Assessed web and mobile applications for BFSI and healthcare clients.
+- Conducted performance testing with JMeter and contributed to Flask-based development of the Modshield SB Web Application Firewall.
+
+
+## Credentials
+
+
+
+### Certifications
+
+- **OSCP** - Offensive Security Certified Professional
+- **CRT** - CREST Registered Penetration Tester *(06-2026)*
+- **CPSA** - CREST Practitioner Security Analyst *(06-2026)*
+- **CAP** - Certified AppSec Practitioner
+- **CNSP** - Certified Network Security Practitioner
+
+
+
+
+### Education
+
+**B.E. Computer Science and Engineering**  
+Anna University Regional Campus Coimbatore · Jun 2019 – Nov 2022  
+CGPA: 8.57 / 10
+
+**Diploma in Electrical and Electronic Engineering**  
+PSG College of Technology · Jun 2016 – Jun 2019  
+CGPA: 7.8 / 10
+
+
+
+## Further reading
+
+- [Full portfolio](https://0xdhanesh.github.io/index.md): Complete work history, expertise, credentials, teaching, and background.
+- [Website](https://0xdhanesh.github.io/): Portfolio and contact details.
+- [GitHub](https://github.com/0xdhanesh): Public projects and source code.
+- [Technical writing](https://0xdhanesh.gitbook.io/): Research and technical notes.
+
+Contact: dhanesh.professional@gmail.com

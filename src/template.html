@@ -4,11 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101e2c">
-  <title>{{name}} — {{role}} · {{location}}</title>
+  <title>{{name}} | {{role}} · {{location}}</title>
   <meta name="description" content="{{name}}, {{role}} based in {{location}}. {{summary}}">
+  <link rel="describedby" href="llms.txt" type="text/plain">
+  <link rel="alternate" href="index.md" type="text/markdown">
   <link rel="canonical" href="{{url}}/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{name}} — {{role}}">
+  <meta property="og:title" content="{{name}} | {{role}}">
   <meta property="og:description" content="{{summary}} {{origin}}">
   <meta property="og:url" content="{{url}}/">
   <meta name="twitter:card" content="summary">
@@ -31,11 +33,11 @@
       <div class="hero-grid wrap">
         <div class="hero-copy">
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{{role}}</p>
-          <p class="hero-name">{{name}}</p>
+          <div class="hero-identity">{{portrait}}<p class="hero-name">{{name}}</p></div>
           <h1 id="hero-title">{{headline}}<br><span>{{headline_accent}}</span></h1>
           <p class="hero-summary">{{summary}}</p>
           <div class="hero-actions"><a class="button primary" href="#selected-work">Explore my work <span aria-hidden="true">↘</span></a><a class="text-link" href="mailto:{{email}}">Get in touch <span aria-hidden="true">↗</span></a></div>
-          <p class="location"><span aria-hidden="true">◎</span> {{origin}}</p>
+          <p class="location"><span aria-hidden="true">◎</span> {{location}} | From {{origin}}</p>
           <p class="print-contact">{{email}} · {{url}}</p>
         </div>
         <aside class="field-notes" aria-label="Security approach">

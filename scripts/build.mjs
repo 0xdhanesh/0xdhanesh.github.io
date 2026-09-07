@@ -29,6 +29,9 @@ export function parsePortfolio(source) {
   }
   for (const field of ['github', 'blog', 'url']) if (!/^https:\/\//.test(profile[field])) throw new Error(`${field} must use https://`);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) throw new Error('Invalid email address');
+  if (profile.photo && (typeof profile.photo !== 'string' || !/^assets\/[a-zA-Z0-9_./-]+$/.test(profile.photo) || profile.photo.split('/').includes('..'))) throw new Error('photo must be a path inside assets/');
+  if (profile.recruiting_summary !== undefined && typeof profile.recruiting_summary !== 'string') throw new Error('recruiting_summary must be text');
+  if (profile.role_fit !== undefined && (!Array.isArray(profile.role_fit) || profile.role_fit.some(item => typeof item !== 'string'))) throw new Error('role_fit must be a list of text entries');
   const tokens = marked.lexer(source.slice(frontmatter[0].length));
   const sections = [];
   let current;
@@ -52,18 +55,49 @@ export function parsePortfolio(source) {
 }
 
 async function build() {
-  const { profile: p, sections, links } = parsePortfolio(await read('content/portfolio.md'));
+  const source = await read('content/portfolio.md');
+  const { profile: p, sections, links } = parsePortfolio(source);
+  if (p.photo) await read(p.photo);
+  const body = source.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '').replace(/<!--[\s\S]*?-->/g, '').trim();
+  const markdown = `# ${p.name}\n\n> ${p.role}. Based in ${p.location}. From ${p.origin}.\n\n${p.summary}\n\nContact: ${p.email}\n\n${body}\n`;
+  const evidence = sections.filter(s => ['impact', 'selected-work', 'experience', 'credentials'].includes(s.id))
+    .map(s => '## ' + s.title + '\n\n' + s.intro + s.records.join('\n')).join('\n');
+  const fit = (p.role_fit || []).map(item => '- ' + item).join('\n');
+  const llms = `# ${p.name}
+
+> ${p.role} based in ${p.location}. ${p.recruiting_summary || p.summary}
+
+${fit}
+
+The experience and outcomes below are drawn from this candidate-authored portfolio. Public project links provide material for technical review; confidential client outcomes are described in the work history.
+
+${evidence}
+
+## Further reading
+
+- [Full portfolio](${p.url}/index.md): Complete work history, expertise, credentials, teaching, and background.
+- [Website](${p.url}/): Portfolio and contact details.
+- [GitHub](${p.github}): Public projects and source code.
+- [Technical writing](${p.blog}): Research and technical notes.
+
+Contact: ${p.email}
+`;
   const renderRecords = section => section.records.map((record, i) => `<article class="record"><span class="record-number" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>${renderMarkdown(record, links)}</article>`).join('\n');
   const sectionHTML = sections.filter(s => s.id !== 'impact').map((s, i) => `<section class="portfolio-section ${s.id}" id="${s.id}" aria-labelledby="heading-${s.id}"><div class="section-heading"><p class="eyebrow">${String(i + 1).padStart(2, '0')} / ${escape(s.title)}</p><h2 id="heading-${s.id}">${escape(({ 'selected-work':'Research you can inspect.', experience:'Depth, built in practice.', expertise:'Across the attack surface.', credentials:'A foundation of expertise.', 'teaching-and-writing':'Knowledge worth passing on.', about:'The person behind the work.' })[s.id] || s.title)}</h2>${renderMarkdown(s.intro)}</div><div class="records">${renderRecords(s)}</div></section>`).join('\n');
   const schema = JSON.stringify({ '@context':'https://schema.org', '@type':'Person', name:p.name, jobTitle:p.role, url:p.url, sameAs:[p.github,p.blog], homeLocation:{'@type':'Place',name:p.location} }).replace(/</g,'\\u003c');
   const values = {
     ...Object.fromEntries(Object.entries(p).map(([key,value])=>[key,escape(value)])),
+    portrait: p.photo ? `<img class="profile-photo" src="${escape(p.photo)}" alt="${escape(p.photo_alt || `Portrait of ${p.name}`)}" width="112" height="112" fetchpriority="high">` : '',
     sections: sectionHTML, impact:renderRecords(sections.find(s=>s.id==='impact')).replaceAll('<h3>', '<h2>').replaceAll('</h3>', '</h2>'), schema,
     year: new Date().getUTCFullYear(),
   };
   const html = (await read('src/template.html')).replace(/\{\{(\w+)\}\}/g, (_,key) => { if (!(key in values)) throw new Error(`Unknown template key ${key}`); return values[key]; });
   await mkdir(path.join(root,'dist'), {recursive:true});
   // Keep the root HTML usable for direct previews and branch-based hosting too.
+  for (const [file, text] of [['llms.txt', llms], ['index.md', markdown]]) {
+    await writeFile(path.join(root, file), text);
+    await writeFile(path.join(root, 'dist', file), text);
+  }
   await writeFile(path.join(root,'index.html'), html);
   await writeFile(path.join(root,'dist/index.html'), html);
   for (const asset of ['styles.css','site.js','favicon.svg']) await copyFile(path.join(root,asset), path.join(root,'dist',asset));
