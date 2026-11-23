@@ -29,6 +29,8 @@ export function parsePortfolio(source) {
   }
   for (const field of ['github', 'blog', 'url']) if (!/^https:\/\//.test(profile[field])) throw new Error(`${field} must use https://`);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) throw new Error('Invalid email address');
+  if (profile.phone !== undefined && (typeof profile.phone !== 'string' || !/^\+[1-9](?: ?\d){6,14}$/.test(profile.phone))) throw new Error('phone must be an international number');
+  if (profile.linkedin !== undefined && (typeof profile.linkedin !== 'string' || !/^https:\/\/www\.linkedin\.com\/in\/[a-z0-9-]+\/?$/i.test(profile.linkedin))) throw new Error('linkedin must be an HTTPS LinkedIn profile URL');
   if (profile.photo && (typeof profile.photo !== 'string' || !/^assets\/[a-zA-Z0-9_./-]+$/.test(profile.photo) || profile.photo.split('/').includes('..'))) throw new Error('photo must be a path inside assets/');
   if (profile.recruiting_summary !== undefined && typeof profile.recruiting_summary !== 'string') throw new Error('recruiting_summary must be text');
   if (profile.role_fit !== undefined && (!Array.isArray(profile.role_fit) || profile.role_fit.some(item => typeof item !== 'string'))) throw new Error('role_fit must be a list of text entries');
@@ -59,7 +61,9 @@ async function build() {
   const { profile: p, sections, links } = parsePortfolio(source);
   if (p.photo) await read(p.photo);
   const body = source.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '').replace(/<!--[\s\S]*?-->/g, '').trim();
-  const markdown = `# ${p.name}\n\n> ${p.role}. Based in ${p.location}. From ${p.origin}.\n\n${p.summary}\n\nContact: ${p.email}\n\n${body}\n`;
+  const linkedinMarkdown = p.linkedin ? `[LinkedIn](${p.linkedin})` : '';
+  const contact = [p.email, p.phone, linkedinMarkdown].filter(Boolean).join(' · ');
+  const markdown = `# ${p.name}\n\n> ${p.role}. Based in ${p.location}. From ${p.origin}.\n\n${p.summary}\n\nContact: ${contact}\n\n${body}\n`;
   const evidence = sections.filter(s => ['impact', 'selected-work', 'experience', 'credentials'].includes(s.id))
     .map(s => '## ' + s.title + '\n\n' + s.intro + s.records.join('\n')).join('\n');
   const fit = (p.role_fit || []).map(item => '- ' + item).join('\n');
@@ -80,13 +84,16 @@ ${evidence}
 - [GitHub](${p.github}): Public projects and source code.
 - [Technical writing](${p.blog}): Research and technical notes.
 
-Contact: ${p.email}
+Contact: ${contact}
 `;
   const renderRecords = section => section.records.map((record, i) => `<article class="record"><span class="record-number" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>${renderMarkdown(record, links)}</article>`).join('\n');
   const sectionHTML = sections.filter(s => s.id !== 'impact').map((s, i) => `<section class="portfolio-section ${s.id}" id="${s.id}" aria-labelledby="heading-${s.id}"><div class="section-heading"><p class="eyebrow">${String(i + 1).padStart(2, '0')} / ${escape(s.title)}</p><h2 id="heading-${s.id}">${escape(({ 'selected-work':'Research you can inspect.', experience:'Depth, built in practice.', expertise:'Across the attack surface.', credentials:'A foundation of expertise.', 'teaching-and-writing':'Knowledge worth passing on.', about:'The person behind the work.' })[s.id] || s.title)}</h2>${renderMarkdown(s.intro)}</div><div class="records">${renderRecords(s)}</div></section>`).join('\n');
-  const schema = JSON.stringify({ '@context':'https://schema.org', '@type':'Person', name:p.name, jobTitle:p.role, url:p.url, sameAs:[p.github,p.blog], homeLocation:{'@type':'Place',name:p.location} }).replace(/</g,'\\u003c');
+  const schema = JSON.stringify({ '@context':'https://schema.org', '@type':'Person', name:p.name, jobTitle:p.role, url:p.url, sameAs:[p.github,p.blog,p.linkedin].filter(Boolean), homeLocation:{'@type':'Place',name:p.location} }).replace(/</g,'\\u003c');
   const values = {
     ...Object.fromEntries(Object.entries(p).map(([key,value])=>[key,escape(value)])),
+    phone_link: p.phone ? `<a class="contact-detail" href="tel:${escape(p.phone.replaceAll(' ', ''))}">${escape(p.phone)}</a>` : '',
+    linkedin_link: p.linkedin ? `<a href="${escape(p.linkedin)}">LinkedIn</a>` : '',
+    print_contact: [p.email, p.phone, p.url, p.linkedin].filter(Boolean).map(escape).join(' · '),
     portrait: p.photo ? `<span class="profile-frame"><img class="profile-photo" src="${escape(p.photo)}" alt="${escape(p.photo_alt || `Portrait of ${p.name}`)}" width="112" height="112" fetchpriority="high"></span>` : '',
     sections: sectionHTML, impact:renderRecords(sections.find(s=>s.id==='impact')).replaceAll('<h3>', '<h2>').replaceAll('</h3>', '</h2>'), schema,
     year: new Date().getUTCFullYear(),

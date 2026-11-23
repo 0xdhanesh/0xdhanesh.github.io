@@ -1,29 +1,36 @@
 ---
 name: Dhanesh Sivasamy
 handle: 0xdhanesh
-role: Senior Engineer - Product Security
+role: Senior Offensive Security & Product Security Engineer
 location: Dubai, UAE
 origin: India
 photo: assets/dhanesh.jpeg
 photo_alt: Portrait of Dhanesh Sivasamy
 email: dhanesh.professional@gmail.com
+phone: "+971 52 793 9507"
+linkedin: https://www.linkedin.com/in/dhanesh-sivasamy
 github: https://github.com/0xdhanesh
 blog: https://0xdhanesh.gitbook.io/
 url: https://0xdhanesh.github.io
 headline: An attacker's mindset.
 headline_accent: An engineer's follow-through.
-summary: I find the weaknesses that scanners miss - across applications, firmware, industrial systems, and AI - and work with engineers to turn findings into lasting fixes.
+summary: >-
+  I have 4.5 years of experience assessing web, API, mobile, thick-client, firmware,
+  and industrial systems across banking, media, and industrial automation. I combine
+  reverse engineering, source review, and fuzzing with custom tooling and work with
+  engineers to remediate findings. I currently assess banking applications and AI
+  platforms in the UAE.
 recruiting_summary: >-
-  Dhanesh Sivasamy brings an offensive security specialist's investigative depth
-  and a product security engineer's follow-through. His work connects application
-  and device exploitation, AI trust-boundary research, custom tooling, and
-  remediation with engineering teams. This combination makes a strong case for
-  senior offensive security roles that value hands-on discovery and practical fixes.
+  Dhanesh Sivasamy has 4.5 years of experience in offensive and product security
+  across banking, OTT media, and industrial automation. He combines reverse
+  engineering, source review, and fuzzing, builds tooling for assessments, and
+  presents findings to engineers, executives, and customers. He currently
+  assesses banking applications and AI platforms in the UAE.
 role_fit:
   - "Senior penetration tester / application security consultant: web, API, mobile, and OTT assessments at Aujas, including payment bypasses, DRM issues, and business-logic flaws; API testing tooling through burpsuite-swagger-generator."
   - "Product security engineer: remediation of 12+ critical and high-severity vulnerabilities at Festo, spanning applications, firmware, hardware, IoT, and industrial edge controllers; collaboration with engineering and leadership."
-  - "Vulnerability researcher / embedded security specialist: custom fuzzing, proprietary protocol reverse engineering, exploit development, and root-cause analysis at Aujas; Profinet and Modbus fuzzing at Festo; CVE-2022-2912 disclosure listed in Selected work."
-  - "AI security testing specialist: IPI-SOC-LLM research demonstrates second-order prompt injection through attacker-controlled logs; current Dubai work includes banking applications and AI/MCP-powered IVR systems."
+  - "Vulnerability researcher / embedded security specialist: custom fuzzing, proprietary protocol reverse engineering, and root-cause analysis at Aujas; industrial gateway firmware analysis and PROFINET and Modbus fuzzing at Festo; credited discoverer of CVE-2022-2912."
+  - "AI security testing specialist: IPI-SOC-LLM research examines second-order prompt injection through attacker-controlled logs. Current work includes banking applications, AI-powered IVR, and MCP integrations."
   - "Senior offensive security consultant / technical mentor: 70%+ assessment automation at Aujas, executive reporting, technical interviewing, mentoring six engineers, and supporting team growth from four to ten at Festo."
 ---
 
@@ -39,7 +46,7 @@ Critical & high-severity findings taken through remediation at Festo.
 ---
 
 ### 70%+
-Of repetitive security assessments automated at Aujas.
+Of repetitive assessment workflows automated at Aujas.
 
 ---
 
@@ -47,6 +54,46 @@ Of repetitive security assessments automated at Aujas.
 Product Security team growth supported through hiring and mentoring.
 
 ## Selected work
+
+### Kaisel
+
+*iOS device integrity · Swift, C, Python*
+
+Built a toolkit to detect jailbreaks, Frida, and debuggers. It cross-checks raw system calls against libc and compares independent dyld image views. Reports use App Attest and a Secure Enclave signature, verified by a reference Python server. Testing on physical devices documented detection misses.
+
+[View Kaisel on GitHub](https://github.com/0xdhanesh/Kaisel)
+
+---
+
+### Beru
+
+*Memory safety labs · C, C++, Docker*
+
+Built 15 labs covering stack, global, and heap overflows and Windows SEH overwrite. Each includes a vulnerable program, a fixed version, and a guide. The Docker build harness cross-compiles for six targets with standard and hardened profiles.
+
+[View Beru on GitHub](https://github.com/0xdhanesh/Beru)
+
+---
+
+### Igris
+
+*Linux investigations · Python, FastAPI, BCC/eBPF*
+
+Built a process and network monitor that records process lineage, network connections, loaded libraries, and call-site stacks in a local SQLite evidence store. It can fall back to polling `/proc` when eBPF is unavailable.
+
+[View Igris on GitHub](https://github.com/0xdhanesh/Igris)
+
+---
+
+### STRIDE Threat Modeler
+
+*Threat modeling · Browser, CLI, MCP*
+
+Built a dependency-free offline tool compatible with Microsoft Threat Modeling Tool templates. Its MCP server lets AI agents build models from source code, and the tool supports evidence-based signal scoring and report export.
+
+[View the STRIDE Threat Modeler on GitHub](https://github.com/0xdhanesh/STRIDE)
+
+---
 
 ### Second-order prompt injection in SOC workflows
 
@@ -68,11 +115,23 @@ Built **burpsuite-swagger-generator**, a Burp Suite plugin that turns observed A
 
 ---
 
+### Burp Suite MCP server
+
+*Application security tooling · Kotlin*
+
+Built an MCP server that connects AI clients to Burp Suite Repeater, Collaborator, and proxy history.
+
+[View the Burp Suite MCP server on GitHub](https://github.com/0xdhanesh/mcp-server)
+
+---
+
 ### Coordinated vulnerability disclosure
 
 *Vulnerability research · CVE-2022-2912*
 
-Authored **CVE-2022-2912** following responsible disclosure. Recognised in Oracle's Security Acknowledgement / Hall of Fame for coordinated disclosure.
+Credited as the discoverer of **CVE-2022-2912**, a cross-site request forgery issue that leads to server-side request forgery in the Craw Data WordPress plugin through version 1.0.0 (CVSS 4.3).
+
+Listed in Oracle's Security Acknowledgements Hall of Fame for a separate disclosure.
 
 [Read the CVE record ↗](https://www.cve.org/CVERecord?id=CVE-2022-2912)
 
@@ -80,37 +139,43 @@ Authored **CVE-2022-2912** following responsible disclosure. Recognised in Oracl
 
 Most client work is confidential. These records describe the scope, approach, and outcomes I can share publicly.
 
-### Emirates National Bank of Dubai
+### Happiest Minds Technologies
 
-*Senior Engineer  · Aug 2026 onwards · Dubai, UAE · Embedded from Happiest Minds*
+*Senior Engineer – Cyber Security · Jul 2026 – Present · Dubai, UAE · Client: Emirates NBD*
 
-- Worked in accessing security for banking applications and IVR systems powered by AI and MCP
+- Assess authentication, authorization, and business logic in banking web applications, APIs, and microservices. Use source-assisted review and SAST/DAST in CI/CD, validate fixes with developers, and map findings to CBUAE, DFSA, and PCI DSS controls.
+- Discovered an authorization bypass in the backend orchestration layer of an AI-powered IVR platform that exposed confidential customer information.
+- Identified NoSQL injection in a core banking platform and path and DLL hijacking issues in a thick-client application spanning Windows and macOS.
+- Assess LLM workflows and agents for prompt injection chains, guardrail bypasses, excessive tool permissions, MCP integration weaknesses, and sensitive-data exposure through logging.
+- Contribute to RASP testing, mobile assessments, and ad hoc red team engagements. Received recognition from senior leadership for the impact of these findings.
 
 ---
 
-### Festo
+### Festo India Private Limited
 
-*Senior Product Security Engineer · Mar 2025 - May 2026 · Bengaluru, India*
+*Senior Test Engineer – Security Testing (Product Security) · Mar 2025 – May 2026 · Bengaluru, India*
 
+- Discovered a second-order command injection in an industrial gateway by reverse engineering its firmware and reviewing source code. The device had reportedly passed three external penetration tests, and the finding drew attention at Festo's German headquarters.
 - Drove remediation of **12+ critical and high-severity vulnerabilities** across web applications, firmware, hardware, IoT devices, and industrial edge controllers, including second-order injections, RCE, and safety parameter bypass.
 - Worked with development teams and executive leadership to close findings and align on long-term risk reduction.
-- Conducted protocol-level fuzzing on **Profinet and Modbus** to uncover previously unknown weaknesses.
-- Facilitated threat analysis and risk assessment (TARA) across product lifecycles, aligned to Cyber Resilience Act requirements.
+- Investigated native-code and memory-safety vulnerabilities in industrial gateways, IoT devices, and controllers, and fuzzed **PROFINET and Modbus** implementations.
+- Established the team's assessment reporting methodology and validated other engineers' findings. Contributed to threat analysis and risk assessment (TARA) aligned with the EU Cyber Resilience Act and IEC 62443.
 - Helped grow the Product Security team **from 4 to 10 engineers**, conducted technical interviews, and mentored 6 engineers from non-security backgrounds.
-- Designed and delivered training in fuzzing, reverse engineering, and offensive security.
+- Delivered training in vulnerability analysis, reverse engineering, fuzzing, and offensive security. Mentored two interns in web application security and taught one a month-long foundation in assembly, system calls, and Ghidra.
+- Presented research at an internal town hall, a senior executive leadership visit, and the Global Capability Center inauguration, including to representatives of major automotive customers.
 
 ---
 
-### Sony India Software Center
+### Aujas Cybersecurity (NuSummit)
 
-*Senior Security Consultant · Jun 2022 – Mar 2025 · Embedded from Aujas Cybersecurity/NuSummit*
+*Senior Consultant · Jun 2022 – Mar 2025 · Bengaluru, India · Client: Sony India*
 
-- Led offensive assessments across web, Android, iOS, tvOS, webOS, and TizenOS for media and OTT clients, identifying payment bypasses, DRM misconfigurations, business-logic flaws, and memory corruption.
-- Built custom fuzzing tools, reversed proprietary protocols, and developed exploits and root-cause analyses, including a critical issue on a shipping consumer device.
+- Led web, API, Android, iOS, thick-client, and smart TV assessments (tvOS, webOS, Tizen) for OTT and media products, identifying payment-flow bypasses, DRM misconfigurations, business-logic flaws, and memory corruption.
+- Reverse engineered proprietary protocols, instrumented applications with Frida, built custom fuzzers, and developed memory-corruption exploits and root-cause analyses, including for a critical issue on a shipping consumer device.
 - Developed attack-centric threat models and performed IoT / hardware testing and firmware reverse engineering.
-- **Automated 70%+ of repetitive assessments** with Python and Bash; enhanced static analysis with Fortify and Semgrep.
+- **Automated over 70% of repetitive assessment workflows** with Python and Bash and strengthened static analysis with Fortify and Semgrep.
 - Delivered executive-level vulnerability reports with actionable remediation guidance.
-- Promoted to Senior Consultant (from Trainee). Recognition included Best Team, Emerging Champion, Bravo, SPOT, and Valuable Partner of the Quarter awards.
+- Interviewed 25+ candidates against client requirements. Progressed from Trainee to Associate Consultant, Consultant, and Senior Consultant. Received Best Team, Emerging Champion, Bravo, SPOT, and Valuable Partner of the Quarter awards.
 
 ---
 
@@ -123,37 +188,60 @@ Most client work is confidential. These records describe the scope, approach, an
 
 ## Expertise
 
-### Applications & AI
+### Application & offensive security
 
-Web, API, mobile, and cross-platform penetration testing. Business-logic attack chains, prompt injection, and LLM trust boundaries.
+Web, API, Android, iOS, and Windows and macOS thick-client testing. Authentication, authorization, business-logic flaws, red teaming, and RASP assessment.
 
-**Tools:** Burp Suite, Frida, MobSF, Fortify, Semgrep.
-
----
-
-### Devices & industrial systems
-
-Firmware reverse engineering, hardware and IoT assessments, protocol fuzzing, and exploit development.
-
-**Tools:** AFL++, Radamsa, Scapy, Ghidra, gdb, binwalk, Wireshark, nmap.
+**Tools** · Burp Suite, Frida, MobSF.
 
 ---
 
-### Engineering & risk
+### Reverse engineering & exploit development
 
-Threat modelling, TARA, remediation, and security automation. Python, Bash, Docker, Git; reading and reversing C and x86 / ARM assembly.
+Binary analysis, disassembly, decompilation, debugging, memory corruption, vulnerability research, and exploit development.
 
-**Frameworks:** OWASP, MITRE ATT&CK, IEC 62443, CRA, HIPAA, PCI-DSS, ISO 27001, Radio Equipment Directives.
+**Tools** · AFL++, Radamsa, custom fuzzers, Ghidra, IDA Pro, GDB, LLDB.
+
+---
+
+### Embedded, firmware & industrial
+
+Embedded Linux firmware analysis, IoT and hardware assessment, Modbus and PROFINET fuzzing, and TARA aligned with IEC 62443 and the EU Cyber Resilience Act.
+
+**Tools** · Logic analyzers, ChipWhisperer, binwalk, Scapy, Wireshark, Nmap.
+
+---
+
+### AI & LLM security
+
+Direct, indirect, and second-order prompt injection, guardrail bypass, agent and tool abuse, Model Context Protocol (MCP) security, and OWASP LLM Top 10.
+
+---
+
+### Security engineering & automation
+
+Source-code review, SAST/DAST, CI/CD security testing, STRIDE threat modeling, assessment automation, remediation, and custom tooling.
+
+**Languages** · Python, C, C++, Swift, Kotlin, Java, JavaScript, Bash, PowerShell, x86 and ARM assembly (analysis).
+
+**Tools** · Fortify, Semgrep, Docker, Git.
+
+---
+
+### Standards & frameworks
+
+CBUAE, DFSA, PCI DSS, UAE IA Standards, ISO 27001, OWASP Top 10, OWASP API Security Top 10, MITRE ATT&CK, HIPAA, and Radio Equipment Directive.
 
 ## Credentials
 
 ### Certifications
 
-- **OSCP** - Offensive Security Certified Professional
-- **CRT** - CREST Registered Penetration Tester *(06-2026)*
-- **CPSA** - CREST Practitioner Security Analyst *(06-2026)*
-- **CAP** - Certified AppSec Practitioner
-- **CNSP** - Certified Network Security Practitioner
+- **OSCP** – Offensive Security Certified Professional *(2022)*
+- **CRT** – CREST Registered Penetration Tester *(Jun 2026)*
+- **CPSA** – CREST Practitioner Security Analyst *(Jun 2026)*
+- **CAP** – Certified AppSec Practitioner, The SecOps Group
+- **CNSP** – Certified Network Security Practitioner, The SecOps Group
+- **Training** – Lakera AI Security Course
 
 ---
 
@@ -192,4 +280,11 @@ I'm from India and now work in Dubai. My path started in electrical and electron
 
 I believe a finding is useful when engineering can act on it. I focus on clear reproduction steps, practical fixes, and communication that works for both developers and leadership. Teaching and open-source tools help that knowledge travel beyond one person.
 
-Outside production systems, I explore technical subjects I don't yet understand. I've completed HackTheBox Rasta Labs and the Lakera AI Security Course. Fuzzing harnesses and second-order injections are reliable ways to start a long conversation over coffee.
+Outside production systems, I explore technical subjects I don't yet understand. I've completed HackTheBox Rasta Labs. Fuzzing harnesses and second-order injections are reliable ways to start a long conversation over coffee.
+
+#### Personal details
+
+- **Nationality** · Indian
+- **Visa** · UAE employment visa (transferable)
+- **Notice period** · 30 days
+- **Languages** · English, Hindi, Tamil

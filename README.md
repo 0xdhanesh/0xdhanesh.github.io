@@ -12,6 +12,8 @@ Your current work details are maintained in the Experience section of `content/p
 
 The top profile fields control your name, title, location, email, external links, headline, and summary. Quote YAML values containing a colon followed by a space, for example `role: "Security Engineer: Product & AI"`.
 
+The optional `phone` and `linkedin` fields add contact links to the site and appear in the print view and Markdown exports. Use a quoted international number beginning with `+` and an HTTPS LinkedIn profile URL.
+
 ## Add a work record
 
 Under `## Experience`, place the newest role first:

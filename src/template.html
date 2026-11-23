@@ -38,7 +38,7 @@
           <p class="hero-summary">{{summary}}</p>
           <div class="hero-actions"><a class="button primary" href="#selected-work">Explore my work <span aria-hidden="true">↘</span></a><a class="text-link" href="mailto:{{email}}">Get in touch <span aria-hidden="true">↗</span></a></div>
           <p class="location"><span aria-hidden="true">◎</span> {{location}} | From {{origin}}</p>
-          <p class="print-contact">{{email}} · {{url}}</p>
+          <p class="print-contact">{{print_contact}}</p>
         </div>
         <aside class="field-notes" aria-label="Security approach">
           <div class="notes-top"><span>FIELD NOTES / 001</span><span aria-hidden="true">↗</span></div>
@@ -49,7 +49,7 @@
       <div class="impact wrap" aria-label="Career highlights">{{impact}}</div>
     </section>
     <div class="content wrap">{{sections}}</div>
-    <section class="contact" id="contact" aria-labelledby="contact-title"><div class="wrap contact-inner"><div><p class="eyebrow">LET’S CONNECT</p><h2 id="contact-title">Good security starts<br>with a conversation.</h2><p>Discuss a role, a research question, or a difficult security problem.</p></div><div class="contact-actions"><a class="button primary" href="mailto:{{email}}">Email me <span aria-hidden="true">↗</span></a><a class="email-address" href="mailto:{{email}}">{{email}}</a><div class="social-links"><a href="{{github}}">GitHub ↗</a><a href="{{blog}}">Technical writing ↗</a><button type="button" class="print-button" hidden>Save as PDF ↓</button></div></div></div></section>
+    <section class="contact" id="contact" aria-labelledby="contact-title"><div class="wrap contact-inner"><div><p class="eyebrow">LET’S CONNECT</p><h2 id="contact-title">Good security starts<br>with a conversation.</h2><p>Discuss a role, a research question, or a difficult security problem.</p></div><div class="contact-actions"><a class="button primary" href="mailto:{{email}}">Email me <span aria-hidden="true">↗</span></a><a class="contact-detail" href="mailto:{{email}}">{{email}}</a>{{phone_link}}<div class="social-links">{{linkedin_link}}<a href="{{github}}">GitHub ↗</a><a href="{{blog}}">Technical writing ↗</a><button type="button" class="print-button" hidden>Save as PDF ↓</button></div></div></div></section>
   </main>
   <footer class="wrap"><p>© {{year}} {{name}}</p><p>{{origin}}</p><a href="#">Back to top ↑</a></footer>
 </body>

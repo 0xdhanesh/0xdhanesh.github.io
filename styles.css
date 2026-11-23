@@ -491,11 +491,11 @@ h1 span {
   gap:17px}
 .contact-actions .button {
   min-width:200px}
-.email-address {
+.contact-detail {
   font-family:var(--mono);
   font-size:12px;
   color:#c0cad0}
-.email-address:hover,.social-links a:hover {
+.contact-detail:hover,.social-links a:hover {
   color:var(--mint)}
 .social-links {
   display:flex;
@@ -819,7 +819,8 @@ body {
   .print-contact {
   display:block;
   color:black;
-  font-size:10pt}
+  font-size:10pt;
+  overflow-wrap:anywhere}
 }
 
 .hero-identity {
